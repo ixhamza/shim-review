@@ -267,7 +267,7 @@ Yes
 ### Which files in this repo are the logs for your build?
 This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.
 *******************************************************************************
-**CALEB: TODO**
+**AMEER: TODO**
 
 *******************************************************************************
 ### What changes were made in the distro's secure boot chain since your SHIM was last signed?
@@ -280,7 +280,7 @@ This is our first shim signing request.
 *******************************************************************************
 ### What is the SHA256 hash of your final shim binary?
 *******************************************************************************
-**CALEB: TODO**
+**AMEER: TODO**
 
 *******************************************************************************
 ### How do you manage and protect the keys used in your shim?
