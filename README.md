@@ -23,7 +23,8 @@ Here's the template:
 ### What organization or people are asking to have this signed?
 *******************************************************************************
 Organization name and website:  
-**CALEB: TODO**
+iXsystems Inc. dba TrueNAS
+https://truenas.com
 
 *******************************************************************************
 ### What's the legal data that proves the organization's genuineness?
@@ -77,7 +78,7 @@ You will be asked to post the contents of these mails in your `shim-review` issu
 (Key should be signed by the other security contacts, pushed to a keyserver
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
-
+**BILL: TODO**
 *******************************************************************************
 ### Who is the secondary contact for security updates, etc.?
 *******************************************************************************
@@ -89,7 +90,7 @@ well known in the Linux community.)
 (Key should be signed by the other security contacts, pushed to a keyserver
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
-
+**BILL: TODO**
 *******************************************************************************
 ### Were these binaries created from the 16.1 shim release tar?
 Please create your shim binaries starting with the 16.1 shim release tar file: https://github.com/rhboot/shim/releases/download/16.1/shim-16.1.tar.bz2
