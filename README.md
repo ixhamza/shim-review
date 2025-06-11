@@ -33,7 +33,7 @@ Provide the information, which can prove the genuineness with certainty.
 Company/tax register entries or equivalent:  
 (a link to the organization entry in your jurisdiction's register will do)  
 
-**CALEB: TODO**
+**IT: TODO**
 
 The public details of both your organization and the issuer in the EV certificate used for signing .cab files at Microsoft Hardware Dev Center File Signing Services.  
 (**not** the CA certificate embedded in your shim binary)
@@ -45,7 +45,7 @@ Issuer: O=MyIssuer, Ltd., CN=MyIssuer EV Code Signing CA
 Subject: C=XX, O=MyCompany, Inc., CN=MyCompany, Inc.
 ```
 
-**CALEB: TODO**
+**IT: TODO**
 
 *******************************************************************************
 ### What product or service is this for?
@@ -273,7 +273,7 @@ This is our first shim signing request.
 ### How do you manage and protect the keys used in your shim?
 Describe the security strategy that is used for key protection. This can range from using hardware tokens like HSMs or Smartcards, air-gapped vaults, physical safes to other good practices.
 *******************************************************************************
-**CALEB: TODO**
+**IT: TODO**
 
 *******************************************************************************
 ### Do you use EV certificates as embedded certificates in the shim?
