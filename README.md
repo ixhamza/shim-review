@@ -22,9 +22,10 @@ Here's the template:
 *******************************************************************************
 ### What organization or people are asking to have this signed?
 *******************************************************************************
-Organization name and website:  
-iXsystems Inc. dba TrueNAS
-https://truenas.com
+Organization name and website:
+
+- **Organization Name:** iXsystems Inc. dba TrueNAS
+- **website:** https://truenas.com
 
 *******************************************************************************
 ### What's the legal data that proves the organization's genuineness?
@@ -110,7 +111,7 @@ Make sure that you've verified that your build process uses that file as a sourc
 
 A short guide on verifying public keys and signatures should be available in the [docs](./docs/) directory.
 *******************************************************************************
-Yes. Built exclusively from shim-16.0.tar.bz2. See our Dockerfile.
+Yes. Built exclusively from `shim-16.0.tar.bz2`. See our Dockerfile.
 
 *******************************************************************************
 ### URL for a repo that contains the exact code which was built to result in your binary:
@@ -118,13 +119,13 @@ Hint: If you attach all the patches and modifications that are being used to you
 
 You can also point to your custom git servers, where the code is hosted.
 *******************************************************************************
-https://github.com/truenas/shim-unsigned/tree/master
+https://github.com/truenas/shim-unsigned/tree/stable/bookworm
 
 *******************************************************************************
 ### What patches are being applied and why:
 Mention all the external patches and build process modifications, which are used during your building process, that make your shim binary be the exact one that you posted as part of this application.
 *******************************************************************************
-The first patch from rhboot/shim#739 is backported into shim-16.0 to fix upstream test-suite failures. It’s merged to upstream master.
+The first patch from [rhboot/shim#739](https://github.com/rhboot/shim/pull/739) is backported into `shim-16.0` to fix upstream test-suite failures. It’s now merged to upstream master.
 
 *******************************************************************************
 ### Do you have the NX bit set in your shim? If so, is your entire boot stack NX-compatible and what testing have you done to ensure such compatibility?
@@ -182,8 +183,8 @@ We re-use Debian's implementation (rebuilding Grub with SBAT adapted to differen
   * CVE-2023-4693
   * CVE-2023-4692
 *******************************************************************************
-Yes. Our GRUB2 packages contain fixes for all listed CVEs except CVE-2020-15705 and CVE-2021-3418, matching Debian, and we backported the February ’25 CVEs (SBAT-5).
-TrueNAS GRUB Repository: https://github.com/truenas/grub2/
+Yes. Our GRUB packages contain fixes for all listed CVEs except CVE-2020-15705 and CVE-2021-3418, same as Debian. Moreover, we backported the February ’25 CVEs (SBAT-5).
+- **TrueNAS GRUB Repository:** https://github.com/truenas/grub2/
 *******************************************************************************
 ### If shim is loading GRUB2 bootloader, and if these fixes have been applied, is the upstream global SBAT generation in your GRUB2 binary set to 4?
 Skip this, if you're not using GRUB2, otherwise do you have an entry in your GRUB2 binary similar to:  
@@ -218,8 +219,7 @@ Using all the standard upstream mechanisms/security features, most prominently t
 *******************************************************************************
 ### Do you build your signed kernel with additional local patches? What do they do?
 *******************************************************************************
-Yes. Our signed kernel includes local patches for storage bug fixes, performance optimizations, and new storage features. See the full list here: https://github.com/truenas/linux/compare/v6.12.25...truenas/linux-6.12?tab=commits.
-We also regularly backport and cherry-pick bug and security fixes from the linux-stable tree.
+Yes, our signed kernel incorporates custom local patches that focus on storage bug fixes, performance enhancements, and additional storage capabilities. The comprehensive list of changes is available here: https://github.com/truenas/linux/compare/v6.12.25...truenas/linux-6.12?tab=commits. We also maintain up-to-date security and stability by regularly incorporating fixes from the upstream linux-stable tree through backporting and cherry-picking.
 
 *******************************************************************************
 ### Do you use an ephemeral key for signing kernel modules?
@@ -239,7 +239,7 @@ This ensures that your new shim+GRUB2 can no longer chainload those older GRUB2 
 
 If this is your first application or you're using a new CA certificate, please say so here.
 *******************************************************************************
-This is our first shim signing request and first use of this CA certificate.
+This is our first shim signing request.
 
 *******************************************************************************
 ### Is the Dockerfile in your repository the recipe for reproducing the building of your shim binary?
@@ -249,13 +249,13 @@ Hint: Prefer using *frozen* packages for your toolchain, since an update to GCC,
 
 If your shim binaries can't be reproduced using the provided Dockerfile, please explain why that's the case, what the differences would be and what build environment (OS and toolchain) is being used to reproduce this build? In this case please write a detailed guide, how to setup this build environment from scratch.
 *******************************************************************************
-Yes
+Yes.
 
 *******************************************************************************
 ### Which files in this repo are the logs for your build?
 This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.
 *******************************************************************************
-**AMEER: TODO**
+`build.log`.
 
 *******************************************************************************
 ### What changes were made in the distro's secure boot chain since your SHIM was last signed?
@@ -268,7 +268,7 @@ This is our first shim signing request.
 *******************************************************************************
 ### What is the SHA256 hash of your final shim binary?
 *******************************************************************************
-**AMEER: TODO**
+`1d710e9d03a77a6131f614796da0b61f780b48ef23036a3504aca4a40b4773e1`
 
 *******************************************************************************
 ### How do you manage and protect the keys used in your shim?
@@ -280,7 +280,7 @@ Describe the security strategy that is used for key protection. This can range f
 ### Do you use EV certificates as embedded certificates in the shim?
 A _yes_ or _no_ will do. There's no penalty for the latter.
 *******************************************************************************
-No
+No.
 
 *******************************************************************************
 ### Are you embedding a CA certificate in your shim?
@@ -343,19 +343,19 @@ Not applicable.
 *******************************************************************************
 ### What is the origin and full version number of your bootloader (GRUB2 or systemd-boot or other)?
 *******************************************************************************
-GRUB 2 version 2.12-1~bpo12+1 from Debian Bookworm Backports.
+GRUB 2 version `2.12-1~bpo12+1` forked from Debian Bookworm Backports with relevant CVEs applied.
 
 *******************************************************************************
 ### If your shim launches any other components apart from your bootloader, please provide further details on what is launched.
 Hint: The most common case here will be a firmware updater like fwupd.
 *******************************************************************************
-**CALEB: TODO If we ship some other binary that is directly loaded by UEFI, like fwupd**
+We do not launch any components other than the GRUB bootloader.
 
 *******************************************************************************
 ### If your GRUB2 or systemd-boot launches any other binaries that are not the Linux kernel in SecureBoot mode, please provide further details on what is launched and how it enforces Secureboot lockdown.
 Skip this, if you're not using GRUB2 or systemd-boot.
 *******************************************************************************
-It will only launch Linux in SecureBoot mode.
+It will only launch Linux in Secure Boot mode.
 
 *******************************************************************************
 ### How do the launched components prevent execution of unauthenticated code?
@@ -392,7 +392,7 @@ A reasonable timeframe of waiting for a review can reach 2-3 months. Helping us 
 
 For newcomers, the applications labeled as [*easy to review*](https://github.com/rhboot/shim-review/issues?q=is%3Aopen+is%3Aissue+label%3A%22easy+to+review%22) are recommended to start the contribution process.
 *******************************************************************************
-I’m new to the shim-review process, so I haven’t reviewed other applications yet. I plan to start by commenting on issues tagged “easy to review” to contribute.
+I’m new to the shim-review process, so I haven’t reviewed other applications yet. I plan to start by reviewing issues tagged “easy to review” to contribute.
 
 *******************************************************************************
 ### Add any additional information you think we may need to validate this shim signing application.
