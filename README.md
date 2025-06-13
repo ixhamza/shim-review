@@ -35,7 +35,7 @@ Provide the information, which can prove the genuineness with certainty.
 Company/tax register entries or equivalent:  
 (a link to the organization entry in your jurisdiction's register will do)  
 
-**IT: TODO**
+https://eintaxid.com/company/542081566-ixsystems%2C-inc./
 
 The public details of both your organization and the issuer in the EV certificate used for signing .cab files at Microsoft Hardware Dev Center File Signing Services.  
 (**not** the CA certificate embedded in your shim binary)
@@ -52,7 +52,7 @@ Subject: C=XX, O=MyCompany, Inc., CN=MyCompany, Inc.
 *******************************************************************************
 ### What product or service is this for?
 *******************************************************************************
-TrueNAS SCALE, currently based on Debian Bookworm, available in Community and Enterprise editions.
+TrueNAS is a Debian Bookworm-based storage solution available in a free Community Edition and a supported Enterprise Edition. It offers ZFS-powered file sharing over SMB/CIFS and NFS, iSCSI block storage, snapshots, replication, encryption, high-availability clustering, proactive hardware monitoring, and enclosure management.
 
 *******************************************************************************
 ### What's the justification that this really does need to be signed for the whole world to be able to boot it?
@@ -71,27 +71,28 @@ TrueNAS uses a custom Linux kernel patched for our storage requirements and sign
 An authorized reviewer will initiate contact verification by sending each security contact a PGP-encrypted email containing random words.
 You will be asked to post the contents of these mails in your `shim-review` issue to prove ownership of the email addresses and PGP keys.
 *******************************************************************************
-- Name:
-- Position:
-- Email address:
-- PGP key fingerprint:
+- Name: Bill O'Hanlon
+- Position: Security Engineer
+- Email address: bill.ohanlon@truenas.com
+- PGP key fingerprint: 0x14C85BA81BEBA81A7827C67D69AB829E3A05D50E
+- https://keyserver.ubuntu.com/pks/lookup?search=0x14C85BA81BEBA81A7827C67D69AB829E3A05D50E&fingerprint=on&op=index
+- The PGP public key is published on our security website: https://security.truenas.com
 
 (Key should be signed by the other security contacts, pushed to a keyserver
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
-**BILL: TODO**
 *******************************************************************************
 ### Who is the secondary contact for security updates, etc.?
 *******************************************************************************
-- Name:
-- Position:
-- Email address:
-- PGP key fingerprint:
+- Name: Alexandra Bain
+- Position: VP Software Solutions and Delivery
+- Email address: alexandra.bain@truenas.com
+- PGP key fingerprint: 0xFFF9E380CB53F3260FEC0FEBAED0C5845C147608
+- https://keyserver.ubuntu.com/pks/lookup?search=0xFFF9E380CB53F3260FEC0FEBAED0C5845C147608&fingerprint=on&op=index
 
 (Key should be signed by the other security contacts, pushed to a keyserver
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
-**BILL: TODO**
 *******************************************************************************
 ### Were these binaries created from the 16.0 shim release tar?
 Please create your shim binaries starting with the 16.0 shim release tar file: https://github.com/rhboot/shim/releases/download/16.0/shim-16.0.tar.bz2
@@ -274,7 +275,7 @@ This is our first shim signing request.
 ### How do you manage and protect the keys used in your shim?
 Describe the security strategy that is used for key protection. This can range from using hardware tokens like HSMs or Smartcards, air-gapped vaults, physical safes to other good practices.
 *******************************************************************************
-**IT: TODO**
+The keys are stored in a secured password vault dedicated to the keys themselves. Access to the vault is severely restricted.
 
 *******************************************************************************
 ### Do you use EV certificates as embedded certificates in the shim?

@@ -2,23 +2,27 @@ DEPRECATED: The legacy builder is deprecated and will be removed in a future rel
             BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
             environment-variable.
 
-Sending build context to Docker daemon  1.706MB
+Sending build context to Docker daemon  1.697MB
 Step 1/21 : FROM debian:bookworm-20250610
+bookworm-20250610: Pulling from library/debian
+0c01110621e0: Already exists
+Digest: sha256:0d8498a0e9e6a60011df39aab78534cfe940785e7c59d19dfae1eb53ea59babe
+Status: Downloaded newer image for debian:bookworm-20250610
  ---> ca216406f76b
 Step 2/21 : RUN apt-get update -y
- ---> Running in 16e2790706f0
+ ---> Running in 74cf045cffd7
 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8793 kB]
-Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [512 B]
-Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [266 kB]
-Fetched 9314 kB in 22s (433 kB/s)
+Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [756 B]
+Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [263 kB]
+Fetched 9311 kB in 3s (3590 kB/s)
 Reading package lists...
- ---> Removed intermediate container 16e2790706f0
- ---> e3f2d5435572
+ ---> Removed intermediate container 74cf045cffd7
+ ---> a91a177ad3df
 Step 3/21 : RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates wget git
- ---> Running in 92f74da8e1a6
+ ---> Running in a4c0f8258d2c
 Reading package lists...
 Building dependency tree...
 Reading state information...
@@ -43,7 +47,7 @@ The following NEW packages will be installed:
   libperl5.36 libpsl5 librtmp1 libsasl2-2 libsasl2-modules-db libssh2-1
   libssl3 openssl perl perl-modules-5.36 wget
 0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
-Need to get 23.2 MB of archives.
+Need to get 23.3 MB of archives.
 After this operation, 115 MB of additional disk space will be used.
 Get:1 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u2 [2815 kB]
 Get:2 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
@@ -52,7 +56,7 @@ Get:4 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-
 Get:5 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u2 [239 kB]
 Get:6 http://deb.debian.org/debian bookworm/main amd64 libssl3 amd64 3.0.16-1~deb12u1 [2026 kB]
 Get:7 http://deb.debian.org/debian bookworm/main amd64 openssl amd64 3.0.16-1~deb12u1 [1427 kB]
-Get:8 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311 [153 kB]
+Get:8 http://deb.debian.org/debian bookworm-updates/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
 Get:9 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
 Get:10 http://deb.debian.org/debian bookworm/main amd64 wget amd64 1.21.3-1+deb12u1 [937 kB]
 Get:11 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
@@ -72,8 +76,8 @@ Get:24 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+
 Get:25 http://deb.debian.org/debian bookworm/main amd64 liberror-perl all 0.17029-2 [29.0 kB]
 Get:26 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u2 [2053 kB]
 Get:27 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u2 [7260 kB]
-debconf: delaying package configuration, since apt-utils is not installed
-Fetched 23.2 MB in 4s (5363 kB/s)
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mFetched 23.3 MB in 5s (4492 kB/s)
 Selecting previously unselected package perl-modules-5.36.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6089 files and directories currently installed.)
 Preparing to unpack .../00-perl-modules-5.36_5.36.0-7+deb12u2_all.deb ...
@@ -97,8 +101,8 @@ Selecting previously unselected package openssl.
 Preparing to unpack .../06-openssl_3.0.16-1~deb12u1_amd64.deb ...
 Unpacking openssl (3.0.16-1~deb12u1) ...
 Selecting previously unselected package ca-certificates.
-Preparing to unpack .../07-ca-certificates_20230311_all.deb ...
-Unpacking ca-certificates (20230311) ...
+Preparing to unpack .../07-ca-certificates_20230311+deb12u1_all.deb ...
+Unpacking ca-certificates (20230311+deb12u1) ...
 Selecting previously unselected package libpsl5:amd64.
 Preparing to unpack .../08-libpsl5_0.21.2-1_amd64.deb ...
 Unpacking libpsl5:amd64 (0.21.2-1) ...
@@ -175,9 +179,9 @@ Setting up libkrb5-3:amd64 (1.20.1-2+deb12u3) ...
 Setting up openssl (3.0.16-1~deb12u1) ...
 Setting up libgdbm6:amd64 (1.23-3) ...
 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
-Setting up ca-certificates (20230311) ...
+Setting up ca-certificates (20230311+deb12u1) ...
 Updating certificates in /etc/ssl/certs...
-140 added, 0 removed; done.
+142 added, 0 removed; done.
 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u3) ...
 Setting up libgdbm-compat4:amd64 (1.23-3) ...
 Setting up libperl5.36:amd64 (5.36.0-7+deb12u2) ...
@@ -186,127 +190,127 @@ Setting up perl (5.36.0-7+deb12u2) ...
 Setting up liberror-perl (0.17029-2) ...
 Setting up git (1:2.39.5-0+deb12u2) ...
 Processing triggers for libc-bin (2.36-9+deb12u10) ...
-Processing triggers for ca-certificates (20230311) ...
+Processing triggers for ca-certificates (20230311+deb12u1) ...
 Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
- ---> Removed intermediate container 92f74da8e1a6
- ---> a2d55a54d62a
-Step 4/21 : RUN git clone https://github.com/ixhamza/shim-review.git
- ---> Running in ffe1417b53d4
-Cloning into 'shim-review'...
- ---> Removed intermediate container ffe1417b53d4
- ---> bc8ee71f6d45
+ ---> Removed intermediate container a4c0f8258d2c
+ ---> d9f2cd62d86e
+Step 4/21 : RUN git clone https://github.com/truenas/shim-review.git
+ ---> Running in 907f6cc094ea
+[91mCloning into 'shim-review'...
+[0m ---> Removed intermediate container 907f6cc094ea
+ ---> a1ab3a728071
 Step 5/21 : WORKDIR /shim-review
- ---> Running in 1fa70898ec85
- ---> Removed intermediate container 1fa70898ec85
- ---> 2b1c9fb07e5b
+ ---> Running in ca980935f280
+ ---> Removed intermediate container ca980935f280
+ ---> 26cf2aae14f4
 Step 6/21 : RUN git checkout truenas/bookworm
- ---> Running in 2b06625c7fff
-Switched to a new branch 'truenas/bookworm'
-branch 'truenas/bookworm' set up to track 'origin/truenas/bookworm'.
- ---> Removed intermediate container 2b06625c7fff
- ---> 1ce11d9de03a
+ ---> Running in 28b7c57deb0c
+[91mSwitched to a new branch 'truenas/bookworm'
+[0mbranch 'truenas/bookworm' set up to track 'origin/truenas/bookworm'.
+ ---> Removed intermediate container 28b7c57deb0c
+ ---> 17acfba5c4e2
 Step 7/21 : WORKDIR /
- ---> Running in cc2504fc883a
- ---> Removed intermediate container cc2504fc883a
- ---> b28ce2be7f17
+ ---> Running in 12a2d7fa9b8b
+ ---> Removed intermediate container 12a2d7fa9b8b
+ ---> 9546e837d5b1
 Step 8/21 : RUN wget https://github.com/rhboot/shim/releases/download/16.0/shim-16.0.tar.bz2
- ---> Running in f9b7e907f29c
---2025-06-11 14:41:23--  https://github.com/rhboot/shim/releases/download/16.0/shim-16.0.tar.bz2
-Resolving github.com (github.com)... 20.207.73.82
-Connecting to github.com (github.com)|20.207.73.82|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/7055698e-9202-41ee-ba94-c434f6ba320b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250611%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250611T144124Z&X-Amz-Expires=300&X-Amz-Signature=34f01f0b7d9c2c3d580cb0ab79b63a78139520af4752c6203597eb90281a1973&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dshim-16.0.tar.bz2&response-content-type=application%2Foctet-stream [following]
---2025-06-11 14:41:24--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/7055698e-9202-41ee-ba94-c434f6ba320b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250611%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250611T144124Z&X-Amz-Expires=300&X-Amz-Signature=34f01f0b7d9c2c3d580cb0ab79b63a78139520af4752c6203597eb90281a1973&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dshim-16.0.tar.bz2&response-content-type=application%2Foctet-stream
-Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.109.133, ...
-Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.111.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
+ ---> Running in fe5b82d3a801
+[91m--2025-06-17 13:32:01--  https://github.com/rhboot/shim/releases/download/16.0/shim-16.0.tar.bz2
+[0m[91mResolving github.com (github.com)... [0m[91m20.207.73.82
+Connecting to github.com (github.com)|20.207.73.82|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m302 Found
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/7055698e-9202-41ee-ba94-c434f6ba320b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250617%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250617T133202Z&X-Amz-Expires=300&X-Amz-Signature=5261a84f9250af126cb0cb961bb359196e7a6786e293fa3fd9ef1be32c626434&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dshim-16.0.tar.bz2&response-content-type=application%2Foctet-stream [following]
+--2025-06-17 13:32:02--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/7055698e-9202-41ee-ba94-c434f6ba320b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250617%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250617T133202Z&X-Amz-Expires=300&X-Amz-Signature=5261a84f9250af126cb0cb961bb359196e7a6786e293fa3fd9ef1be32c626434&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dshim-16.0.tar.bz2&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... [0m[91m185.199.108.133, 185.199.110.133, 185.199.109.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.108.133|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
 Length: 2334688 (2.2M) [application/octet-stream]
 Saving to: 'shim-16.0.tar.bz2'
+[0m[91m
+     0K .....[0m[91m...[0m[91m..[0m[91m ...[0m[91m...[0m[91m.... .......... ..[0m[91m........ ........[0m[91m..  2%  372K 6s
+    50K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m....  4% 1.40M 4s
+   100K .......... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m......  6%  710K 3s
+   150K ..........[0m[91m .......... ......[0m[91m.... .......... ..[0m[91m........  8% 2.16M 3s
+   200K ....[0m[91m....[0m[91m.. .......... ....[0m[91m...... ..........[0m[91m .......... 10% 2.84M 2s
+   250K ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. .......... 13%  965K 2s
+   300K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... .......... 15% 3.62M 2s
+   350K ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... .......... 17% 3.91M 2s[0m[91m
+   400K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 19% 3.36M 2s
+   450K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 21% 5.18M 1s
+   500K .......... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... 24% 5.29M 1s
+   550K ..........[0m[91m .......... ......[0m[91m.... .......... [0m[91m..[0m[91m........ 26% 1.16M 1s
+   600K ........[0m[91m.. .......... ....[0m[91m...... ..........[0m[91m .......... 28% 5.97M 1s
+   650K ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. .......... 30% 7.21M 1s
+   700K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... .......... 32% 7.94M 1s
+   750K ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... .......... 35% 7.07M 1s[0m[91m
+   800K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 37% 6.57M 1s
+   850K .......... ..[0m[91m..[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 39% 9.15M 1s
+   900K .......... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... 41% 8.82M 1s
+   950K ..[0m[91m........[0m[91m .......... ......[0m[91m.... .......... ..[0m[91m........ 43% 9.62M 1s[0m[91m
+  1000K ........[0m[91m.. .......... ....[0m[91m...... ..........[0m[91m .......... 46% 10.9M 1s
+  1050K ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. .......... 48% 9.69M 1s
+  1100K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... ....[0m[91m...... 50% 12.2M 0s
+  1150K ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... .......... 52%[0m[91m 11.0M 0s[0m[91m
+  1200K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 54% 1.26M 0s
+  1250K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 57% 10.3M 0s
+  1300K ....[0m[91m...... ..[0m[91m........[0m[91m ........[0m[91m.. .......... ....[0m[91m...... 59% 13.0M 0s
+  1350K ..[0m[91m........[0m[91m .......... ......[0m[91m.... .......... ..[0m[91m........ 61% 14.4M 0s
+  1400K ........[0m[91m.. .......... ....[0m[91m...... ..........[0m[91m .......... 63%[0m[91m 13.2M 0s
+  1450K ......[0m[91m.... .......... ..[0m[91m........ .......[0m[91m.[0m[91m.. .......... 65% 13.0M 0s
+  1500K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... .......... 67% 14.3M 0s
+  1550K ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... .......... 70% 16.2M 0s[0m[91m
+  1600K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 72% 13.2M 0s
+  1650K ......[0m[91m.... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 74% 17.9M 0s
+  1700K ....[0m[91m...... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... 76% 15.1M 0s
+  1750K ..[0m[91m........[0m[91m ......[0m[91m..[0m[91m.. ......[0m[91m.... .......... ..[0m[91m........ 78% 16.9M 0s
+  1800K ........[0m[91m.. .......... ....[0m[91m...... ..........[0m[91m .......... 81% 18.9M 0s
+  1850K ......[0m[91m.... ....[0m[91m...... ..[0m[91m........ ........[0m[91m.. .......... 83% 19.1M 0s
+  1900K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... .......... 85% 17.2M 0s
+  1950K[0m[91m ..[0m[91m........ ........[0m[91m.. .......... ...[0m[91m.[0m[91m...... ..[0m[91m........ 87% 19.9M 0s[0m[91m
+  2000K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 89% 15.3M 0s
+  2050K ......[0m[91m.... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 92% 22.7M 0s
+  2100K ....[0m[91m...... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... 94% 19.0M 0s
+  2150K ..[0m[91m........[0m[91m ........[0m[91m.. ......[0m[91m.... .......... ..[0m[91m........ 96% 20.7M 0s[0m[91m
+  2200K ........[0m[91m.. .......... ....[0m[91m...... ..[0m[91m........[0m[91m .......... 98% 20.1M 0s
+  2250K ......[0m[91m.... .......... ..[0m[91m.......                       100% 50.3M[0m[91m=0.6s
 
-     0K .......... .......... .......... .......... ..........  2%  463K 5s
-    50K .......... .......... .......... .......... ..........  4% 1.19M 3s
-   100K .......... .......... .......... .......... ..........  6%  817K 3s
-   150K .......... .......... .......... .......... ..........  8% 2.35M 2s
-   200K .......... .......... .......... .......... .......... 10% 3.07M 2s
-   250K .......... .......... .......... .......... .......... 13% 1024K 2s
-   300K .......... .......... .......... .......... .......... 15% 4.01M 2s
-   350K .......... .......... .......... .......... .......... 17% 4.69M 1s
-   400K .......... .......... .......... .......... .......... 19% 4.87M 1s
-   450K .......... .......... .......... .......... .......... 21% 5.99M 1s
-   500K .......... .......... .......... .......... .......... 24% 6.37M 1s
-   550K .......... .......... .......... .......... .......... 26% 1.82M 1s
-   600K .......... .......... .......... .......... .......... 28% 2.70M 1s
-   650K .......... .......... .......... .......... .......... 30% 6.07M 1s
-   700K .......... .......... .......... .......... .......... 32% 8.04M 1s
-   750K .......... .......... .......... .......... .......... 35% 9.23M 1s
-   800K .......... .......... .......... .......... .......... 37% 9.35M 1s
-   850K .......... .......... .......... .......... .......... 39% 9.91M 1s
-   900K .......... .......... .......... .......... .......... 41% 10.6M 1s
-   950K .......... .......... .......... .......... .......... 43% 11.7M 1s
-  1000K .......... .......... .......... .......... .......... 46% 12.1M 1s
-  1050K .......... .......... .......... .......... .......... 48% 9.27M 0s
-  1100K .......... .......... .......... .......... .......... 50% 11.2M 0s
-  1150K .......... .......... .......... .......... .......... 52% 12.9M 0s
-  1200K .......... .......... .......... .......... .......... 54% 1.39M 0s
-  1250K .......... .......... .......... .......... .......... 57% 18.9M 0s
-  1300K .......... .......... .......... .......... .......... 59% 14.9M 0s
-  1350K .......... .......... .......... .......... .......... 61% 15.3M 0s
-  1400K .......... .......... .......... .......... .......... 63% 17.2M 0s
-  1450K .......... .......... .......... .......... .......... 65% 12.5M 0s
-  1500K .......... .......... .......... .......... .......... 67% 16.1M 0s
-  1550K .......... .......... .......... .......... .......... 70% 17.8M 0s
-  1600K .......... .......... .......... .......... .......... 72% 19.3M 0s
-  1650K .......... .......... .......... .......... .......... 74% 17.4M 0s
-  1700K .......... .......... .......... .......... .......... 76% 19.2M 0s
-  1750K .......... .......... .......... .......... .......... 78% 20.6M 0s
-  1800K .......... .......... .......... .......... .......... 81% 20.8M 0s
-  1850K .......... .......... .......... .......... .......... 83% 16.0M 0s
-  1900K .......... .......... .......... .......... .......... 85% 16.3M 0s
-  1950K .......... .......... .......... .......... .......... 87% 26.2M 0s
-  2000K .......... .......... .......... .......... .......... 89% 26.0M 0s
-  2050K .......... .......... .......... .......... .......... 92% 22.1M 0s
-  2100K .......... .......... .......... .......... .......... 94% 19.6M 0s
-  2150K .......... .......... .......... .......... .......... 96% 27.0M 0s
-  2200K .......... .......... .......... .......... .......... 98% 27.5M 0s
-  2250K .......... .......... .........                       100% 20.6M=0.5s
+[0m[91m2025-06-17 13:32:03 (3.69 MB/s) - 'shim-16.0.tar.bz2' saved [2334688/2334688]
 
-2025-06-11 14:41:25 (4.17 MB/s) - 'shim-16.0.tar.bz2' saved [2334688/2334688]
-
- ---> Removed intermediate container f9b7e907f29c
- ---> 21256a997bba
+[0m ---> Removed intermediate container fe5b82d3a801
+ ---> 39eb74a7cc59
 Step 9/21 : RUN echo "d503f778dc75895d3130da07e2ff23d2393862f95b6cd3d24b10cbd4af847217  shim-16.0.tar.bz2" >SHA256SUM
- ---> Running in 3ff18490cdcf
- ---> Removed intermediate container 3ff18490cdcf
- ---> c5b4b6d87173
+ ---> Running in ed151a0c32da
+ ---> Removed intermediate container ed151a0c32da
+ ---> 7abad74091e0
 Step 10/21 : RUN sha256sum -c SHA256SUM
- ---> Running in f6d9ca80f6c4
+ ---> Running in dd08bbce536b
 shim-16.0.tar.bz2: OK
- ---> Removed intermediate container f6d9ca80f6c4
- ---> f67acb86c3da
+ ---> Removed intermediate container dd08bbce536b
+ ---> 31ebc090a1eb
 Step 11/21 : RUN mv shim-16.0.tar.bz2 shim_16.0+truenas.orig.tar.bz2
- ---> Running in 15045d1059c9
- ---> Removed intermediate container 15045d1059c9
- ---> fb3f4a87322b
+ ---> Running in cb2a0c61b12d
+ ---> Removed intermediate container cb2a0c61b12d
+ ---> a3108facdf67
 Step 12/21 : RUN git clone https://github.com/truenas/shim-unsigned /shim-truenas
- ---> Running in 06f8b8583d29
-Cloning into '/shim-truenas'...
- ---> Removed intermediate container 06f8b8583d29
- ---> 77a6d5206c54
+ ---> Running in ec3cfb060313
+[91mCloning into '/shim-truenas'...
+[0m ---> Removed intermediate container ec3cfb060313
+ ---> 9526b67022d6
 Step 13/21 : WORKDIR /shim-truenas
- ---> Running in 652b4927afcd
- ---> Removed intermediate container 652b4927afcd
- ---> fde1576cb251
+ ---> Running in f33ef15e9761
+ ---> Removed intermediate container f33ef15e9761
+ ---> ea73fcf40468
 Step 14/21 : RUN git checkout stable/bookworm
- ---> Running in 53a8453e8fc7
-branch 'stable/bookworm' set up to track 'origin/stable/bookworm'.
-Switched to a new branch 'stable/bookworm'
- ---> Removed intermediate container 53a8453e8fc7
- ---> a24d7fe2a157
+ ---> Running in ca782c2765f4
+[91mSwitched to a new branch 'stable/bookworm'
+[0mbranch 'stable/bookworm' set up to track 'origin/stable/bookworm'.
+ ---> Removed intermediate container ca782c2765f4
+ ---> 4c968103b596
 Step 15/21 : RUN apt-get build-dep -y .
- ---> Running in 57b94f560db9
+ ---> Running in 1c88a5e13c1c
 Note, using directory '.' to get the build dependencies
 Reading package lists...
 Building dependency tree...
@@ -430,10 +434,10 @@ Get:96 http://deb.debian.org/debian bookworm/main amd64 opensc amd64 0.23.0-0.3+
 Get:97 http://deb.debian.org/debian bookworm/main amd64 pesign amd64 0.112-6 [94.0 kB]
 Get:98 http://deb.debian.org/debian bookworm/main amd64 sbsigntool amd64 0.9.4-3.1 [68.4 kB]
 Get:99 http://deb.debian.org/debian bookworm/main amd64 xxd amd64 2:9.0.1378-2+deb12u2 [84.1 kB]
-debconf: delaying package configuration, since apt-utils is not installed
-Fetched 93.5 MB in 22s (4210 kB/s)
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mFetched 93.5 MB in 24s (3835 kB/s)
 Selecting previously unselected package readline-common.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 9903 files and directories currently installed.)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 9905 files and directories currently installed.)
 Preparing to unpack .../00-readline-common_8.2-1.3_all.deb ...
 Unpacking readline-common (8.2-1.3) ...
 Selecting previously unselected package sensible-utils.
@@ -841,35 +845,35 @@ Setting up g++ (4:12.2.0-3) ...
 update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
 Setting up build-essential (12.9) ...
 Processing triggers for libc-bin (2.36-9+deb12u10) ...
- ---> Removed intermediate container 57b94f560db9
- ---> 82809ffcd932
+ ---> Removed intermediate container 1c88a5e13c1c
+ ---> 9f9f85caa4e1
 Step 16/21 : RUN dpkg-buildpackage -us -uc
- ---> Running in fdcf87c0c29b
+ ---> Running in 315b8243954a
 dpkg-buildpackage: info: source package shim
 dpkg-buildpackage: info: source version 16.0+truenas-1
 dpkg-buildpackage: info: source distribution bookworm
 dpkg-buildpackage: info: source changed by TrueNAS Engineering <dev@truenas.com>
 dpkg-buildpackage: info: host architecture amd64
- dpkg-source --before-build .
-dpkg-source: info: using patch list from debian/patches/series
+[91m dpkg-source --before-build .
+[0mdpkg-source: info: using patch list from debian/patches/series
 dpkg-source: info: applying test-mock-variables-explicitly-skip-CONFIG_ONLY-vars.patch
- debian/rules clean
-dh clean
+[91m debian/rules clean
+[0mdh clean
    debian/rules override_dh_auto_clean
 make[1]: Entering directory '/shim-truenas'
 dh_auto_clean -- MAKELEVEL=0
 	make -j20 clean MAKELEVEL=0
 make: Entering directory '/shim-truenas'
 Removing .pc/
+[91mmake: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+[0mmake: Entering directory '/shim-truenas'
+[91mmake: clang: No such file or directory
+[0m[91mmake: clang: No such file or directory
+make: clang: No such file or directory
+[0mmake: Leaving directory '/shim-truenas'
 make: Entering directory '/shim-truenas'
-make: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
-make: clang: No such file or directory
-make: clang: No such file or directory
-make: clang: No such file or directory
-make: Leaving directory '/shim-truenas'
-make: Entering directory '/shim-truenas'
-make: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
-make: Leaving directory '/shim-truenas'
+[91mmake: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+[0mmake: Leaving directory '/shim-truenas'
 make: Entering directory '/shim-truenas/gnu-efi'
 make: Leaving directory '/shim-truenas/gnu-efi'
 make: Entering directory '/shim-truenas/Cryptlib/OpenSSL'
@@ -888,16 +892,16 @@ rm -f test-csv test-sbat test-str test-load-options
 rm -f test-mock-variables test-mok-mirror test-pe-relocate test-pe-util
 make[1]: Leaving directory '/shim-truenas'
    dh_clean
- dpkg-source -b .
-dpkg-source: info: using source format '3.0 (quilt)'
-dpkg-source: warning: upstream signing key but no upstream tarball signature
-dpkg-source: info: building shim using existing ./shim_16.0+truenas.orig.tar.bz2
+[91m dpkg-source -b .
+[0mdpkg-source: info: using source format '3.0 (quilt)'
+[91mdpkg-source: warning: upstream signing key but no upstream tarball signature
+[0mdpkg-source: info: building shim using existing ./shim_16.0+truenas.orig.tar.bz2
 dpkg-source: info: using patch list from debian/patches/series
-dpkg-source: warning: ignoring deletion of file gnu-efi/lib/Makefile.orig, use --include-removal to override
-dpkg-source: info: building shim in shim_16.0+truenas-1.debian.tar.xz
+[91mdpkg-source: warning: ignoring deletion of file gnu-efi/lib/Makefile.orig, use --include-removal to override
+[0mdpkg-source: info: building shim in shim_16.0+truenas-1.debian.tar.xz
 dpkg-source: info: building shim in shim_16.0+truenas-1.dsc
- debian/rules binary
-dh binary
+[91m debian/rules binary
+[0mdh binary
    dh_update_autotools_config
    dh_autoreconf
    dh_auto_configure
@@ -926,26 +930,26 @@ x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o mok.o mok.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o netboot.o netboot.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -c -o cert.o cert.S 
-cert.S: Assembler messages:
+[91mcert.S: Assembler messages:
 cert.S:55: Warning: setting incorrect section attributes for .note.GNU-stack
-x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o dp.o dp.c
+[0mx86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o dp.o dp.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o loader-proto.o loader-proto.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o tpm.o tpm.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o version.o version.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o errlog.o errlog.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o sbat.o sbat.c
 dos2unix -r -l -F -f -n data/sbat.truenas.csv sbat.truenas.csv
-dos2unix: converting file data/sbat.truenas.csv to file sbat.truenas.csv in Unix format...
-tail -c1 sbat.truenas.csv | read -r _ || echo >> sbat.truenas.csv # ensure a trailing newline
+[91mdos2unix: converting file data/sbat.truenas.csv to file sbat.truenas.csv in Unix format...
+[0mtail -c1 sbat.truenas.csv | read -r _ || echo >> sbat.truenas.csv # ensure a trailing newline
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -x c -c -o sbat_data.o /dev/null
 x86_64-linux-gnu-objcopy --add-section .sbat=/shim-truenas/data/sbat.csv \
 	--set-section-flags .sbat=contents,alloc,load,readonly,data \
 	sbat_data.o
 x86_64-linux-gnu-objcopy --add-section ".sbat.truenas=sbat.truenas.csv" sbat_data.o
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -c -o sbat_var.o sbat_var.S 
-sbat_var.S: Assembler messages:
+[91msbat_var.S: Assembler messages:
 sbat_var.S:24: Warning: setting incorrect section attributes for .note.GNU-stack
-x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o pe.o pe.c
+[0mx86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o pe.o pe.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o pe-relocate.o pe-relocate.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o httpboot.o httpboot.c
 x86_64-linux-gnu-gcc-12 -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -Wdate-time -D_FORTIFY_SOURCE=2  -c -o csv.o csv.c
@@ -1457,13 +1461,13 @@ x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/setjmp.S -o x86_64/setjmp.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/callwrap.c -o x86_64/callwrap.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/efi_stub.S -o x86_64/efi_stub.o
-/shim-truenas/gnu-efi//lib/x86_64/setjmp.S: Assembler messages:
+[91m/shim-truenas/gnu-efi//lib/x86_64/setjmp.S: Assembler messages:
 /shim-truenas/gnu-efi//lib/x86_64/setjmp.S:49: Warning: setting incorrect section attributes for .note.GNU-stack
-/shim-truenas/gnu-efi//lib/x86_64/efi_stub.S: Assembler messages:
+[0m[91m/shim-truenas/gnu-efi//lib/x86_64/efi_stub.S: Assembler messages:
 /shim-truenas/gnu-efi//lib/x86_64/efi_stub.S:190: Warning: setting incorrect section attributes for .note.GNU-stack
-x86_64-linux-gnu-gcc-ar rv -U libefi.a boxdraw.o smbios.o console.o crc.o data.o debug.o dpath.o error.o event.o exit.o guid.o hand.o hw.o init.o lock.o misc.o pause.o print.o sread.o str.o cmdline.o runtime/rtlock.o runtime/efirtlib.o runtime/rtstr.o runtime/vm.o runtime/rtdata.o x86_64/initplat.o x86_64/math.o x86_64/setjmp.o x86_64/callwrap.o x86_64/efi_stub.o
-/usr/bin/ar: creating libefi.a
-a - boxdraw.o
+[0mx86_64-linux-gnu-gcc-ar rv -U libefi.a boxdraw.o smbios.o console.o crc.o data.o debug.o dpath.o error.o event.o exit.o guid.o hand.o hw.o init.o lock.o misc.o pause.o print.o sread.o str.o cmdline.o runtime/rtlock.o runtime/efirtlib.o runtime/rtstr.o runtime/vm.o runtime/rtdata.o x86_64/initplat.o x86_64/math.o x86_64/setjmp.o x86_64/callwrap.o x86_64/efi_stub.o
+[91m/usr/bin/ar: creating libefi.a
+[0ma - boxdraw.o
 a - smbios.o
 a - console.o
 a - crc.o
@@ -1500,11 +1504,11 @@ make -C /shim-truenas/gnu-efi/x86_64/gnuefi -f /shim-truenas/gnu-efi//gnuefi/Mak
 make: Entering directory '/shim-truenas/gnu-efi/x86_64/gnuefi'
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//gnuefi -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//gnuefi/crt0-efi-x86_64.S -o crt0-efi-x86_64.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//gnuefi -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//gnuefi/reloc_x86_64.c -o reloc_x86_64.o
-/shim-truenas/gnu-efi//gnuefi/crt0-efi-x86_64.S: Assembler messages:
+[91m/shim-truenas/gnu-efi//gnuefi/crt0-efi-x86_64.S: Assembler messages:
 /shim-truenas/gnu-efi//gnuefi/crt0-efi-x86_64.S:75: Warning: setting incorrect section attributes for .note.GNU-stack
-x86_64-linux-gnu-gcc-ar rv -U libgnuefi.a reloc_x86_64.o
-/usr/bin/ar: creating libgnuefi.a
-a - reloc_x86_64.o
+[0mx86_64-linux-gnu-gcc-ar rv -U libgnuefi.a reloc_x86_64.o
+[91m/usr/bin/ar: creating libgnuefi.a
+[0ma - reloc_x86_64.o
 make: Leaving directory '/shim-truenas/gnu-efi/x86_64/gnuefi'
 make: Leaving directory '/shim-truenas/gnu-efi'
 x86_64-linux-gnu-ld -o shimx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim-truenas/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined shim.o globals.o memattrs.o mok.o netboot.o cert.o dp.o loader-proto.o tpm.o version.o errlog.o sbat.o sbat_data.o sbat_var.o pe.o pe-relocate.o httpboot.o csv.o load-options.o utils.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/12/libgcc.a lib/lib.a
@@ -1573,9 +1577,9 @@ make[1]: Entering directory '/shim-truenas'
 dh_auto_test -- INSTALL=install RELEASE=16.0+truenas COMMIT_ID=657b2483ca6e9fcf2ad8ac7ee577ff546d24c3aa MAKELEVEL=0 ENABLE_HTTPBOOT=true VENDOR_CERT_FILE=debian/truenas-uefi-ca.der VENDOR_DBX_FILE=dbx.esl EFIDIR=truenas CROSS_COMPILE=x86_64-linux-gnu- CC=x86_64-linux-gnu-gcc-12  SBAT_AUTOMATIC_DATE=2025021800
 	make -j20 test INSTALL=install RELEASE=16.0\+truenas COMMIT_ID=657b2483ca6e9fcf2ad8ac7ee577ff546d24c3aa MAKELEVEL=0 ENABLE_HTTPBOOT=true VENDOR_CERT_FILE=debian/truenas-uefi-ca.der VENDOR_DBX_FILE=dbx.esl EFIDIR=truenas CROSS_COMPILE=x86_64-linux-gnu- CC=x86_64-linux-gnu-gcc-12 SBAT_AUTOMATIC_DATE=2025021800
 make: Entering directory '/shim-truenas'
-make: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
 make: Entering directory '/shim-truenas'
-dd if=/dev/urandom bs=512 count=17 status=none | ( \
+[91mmake: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+[0mdd if=/dev/urandom bs=512 count=17 status=none | ( \
 	echo "unsigned char random_bin[] = {" ; \
 	xxd -i - ; \
 	echo "};" ; \
@@ -1669,15 +1673,15 @@ x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -O2 -ggdb -std=gnu11 -isystem /shim-truenas/include/system -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -Iinclude -iquote . -isystem /usr/include -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096   -fshort-wchar -fno-builtin -rdynamic -fno-inline -fno-eliminate-unused-debug-types -fno-eliminate-unused-debug-symbols -gpubnames -grecord-gcc-switches  -Wall -Wextra -Wno-missing-field-initializers -Wsign-compare -Wno-deprecated-declarations -Wno-unused-but-set-variable -Wno-unused-variable -Wno-pointer-sign -Werror -Werror=nonnull -Werror=nonnull-compare  -DEFI_FUNCTION_WRAPPER -DGNU_EFI_USE_MS_ABI -DPAGE_SIZE=4096 -DSHIM_UNIT_TEST "-DDEFAULT_DEBUG_PRINT_STATE=0" -isystem include-fixed -isystem /usr/include/x86_64-linux-gnu -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/initplat.c -o x86_64/initplat.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -O2 -ggdb -std=gnu11 -isystem /shim-truenas/include/system -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -Iinclude -iquote . -isystem /usr/include -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096   -fshort-wchar -fno-builtin -rdynamic -fno-inline -fno-eliminate-unused-debug-types -fno-eliminate-unused-debug-symbols -gpubnames -grecord-gcc-switches  -Wall -Wextra -Wno-missing-field-initializers -Wsign-compare -Wno-deprecated-declarations -Wno-unused-but-set-variable -Wno-unused-variable -Wno-pointer-sign -Werror -Werror=nonnull -Werror=nonnull-compare  -DEFI_FUNCTION_WRAPPER -DGNU_EFI_USE_MS_ABI -DPAGE_SIZE=4096 -DSHIM_UNIT_TEST "-DDEFAULT_DEBUG_PRINT_STATE=0" -isystem include-fixed -isystem /usr/include/x86_64-linux-gnu -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/math.c -o x86_64/math.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -O2 -ggdb -std=gnu11 -isystem /shim-truenas/include/system -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -Iinclude -iquote . -isystem /usr/include -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096   -fshort-wchar -fno-builtin -rdynamic -fno-inline -fno-eliminate-unused-debug-types -fno-eliminate-unused-debug-symbols -gpubnames -grecord-gcc-switches  -Wall -Wextra -Wno-missing-field-initializers -Wsign-compare -Wno-deprecated-declarations -Wno-unused-but-set-variable -Wno-unused-variable -Wno-pointer-sign -Werror -Werror=nonnull -Werror=nonnull-compare  -DEFI_FUNCTION_WRAPPER -DGNU_EFI_USE_MS_ABI -DPAGE_SIZE=4096 -DSHIM_UNIT_TEST "-DDEFAULT_DEBUG_PRINT_STATE=0" -isystem include-fixed -isystem /usr/include/x86_64-linux-gnu -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/setjmp.S -o x86_64/setjmp.o
-/shim-truenas/gnu-efi//lib/x86_64/setjmp.S: Assembler messages:
+[91m/shim-truenas/gnu-efi//lib/x86_64/setjmp.S: Assembler messages:
 /shim-truenas/gnu-efi//lib/x86_64/setjmp.S:49: Warning: setting incorrect section attributes for .note.GNU-stack
-x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -O2 -ggdb -std=gnu11 -isystem /shim-truenas/include/system -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -Iinclude -iquote . -isystem /usr/include -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096   -fshort-wchar -fno-builtin -rdynamic -fno-inline -fno-eliminate-unused-debug-types -fno-eliminate-unused-debug-symbols -gpubnames -grecord-gcc-switches  -Wall -Wextra -Wno-missing-field-initializers -Wsign-compare -Wno-deprecated-declarations -Wno-unused-but-set-variable -Wno-unused-variable -Wno-pointer-sign -Werror -Werror=nonnull -Werror=nonnull-compare  -DEFI_FUNCTION_WRAPPER -DGNU_EFI_USE_MS_ABI -DPAGE_SIZE=4096 -DSHIM_UNIT_TEST "-DDEFAULT_DEBUG_PRINT_STATE=0" -isystem include-fixed -isystem /usr/include/x86_64-linux-gnu -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/callwrap.c -o x86_64/callwrap.o
+[0mx86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -O2 -ggdb -std=gnu11 -isystem /shim-truenas/include/system -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -Iinclude -iquote . -isystem /usr/include -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096   -fshort-wchar -fno-builtin -rdynamic -fno-inline -fno-eliminate-unused-debug-types -fno-eliminate-unused-debug-symbols -gpubnames -grecord-gcc-switches  -Wall -Wextra -Wno-missing-field-initializers -Wsign-compare -Wno-deprecated-declarations -Wno-unused-but-set-variable -Wno-unused-variable -Wno-pointer-sign -Werror -Werror=nonnull -Werror=nonnull-compare  -DEFI_FUNCTION_WRAPPER -DGNU_EFI_USE_MS_ABI -DPAGE_SIZE=4096 -DSHIM_UNIT_TEST "-DDEFAULT_DEBUG_PRINT_STATE=0" -isystem include-fixed -isystem /usr/include/x86_64-linux-gnu -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/callwrap.c -o x86_64/callwrap.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -O2 -ggdb -std=gnu11 -isystem /shim-truenas/include/system -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -Iinclude -iquote . -isystem /usr/include -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096   -fshort-wchar -fno-builtin -rdynamic -fno-inline -fno-eliminate-unused-debug-types -fno-eliminate-unused-debug-symbols -gpubnames -grecord-gcc-switches  -Wall -Wextra -Wno-missing-field-initializers -Wsign-compare -Wno-deprecated-declarations -Wno-unused-but-set-variable -Wno-unused-variable -Wno-pointer-sign -Werror -Werror=nonnull -Werror=nonnull-compare  -DEFI_FUNCTION_WRAPPER -DGNU_EFI_USE_MS_ABI -DPAGE_SIZE=4096 -DSHIM_UNIT_TEST "-DDEFAULT_DEBUG_PRINT_STATE=0" -isystem include-fixed -isystem /usr/include/x86_64-linux-gnu -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -O2 -ggdb -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/efi_stub.S -o x86_64/efi_stub.o
-/shim-truenas/gnu-efi//lib/x86_64/efi_stub.S: Assembler messages:
+[91m/shim-truenas/gnu-efi//lib/x86_64/efi_stub.S: Assembler messages:
 /shim-truenas/gnu-efi//lib/x86_64/efi_stub.S:190: Warning: setting incorrect section attributes for .note.GNU-stack
-x86_64-linux-gnu-gcc-ar rv -U libefi.a boxdraw.o smbios.o console.o crc.o data.o debug.o dpath.o error.o event.o exit.o guid.o hand.o hw.o init.o lock.o misc.o pause.o print.o sread.o str.o cmdline.o runtime/rtlock.o runtime/efirtlib.o runtime/rtstr.o runtime/vm.o runtime/rtdata.o x86_64/initplat.o x86_64/math.o x86_64/setjmp.o x86_64/callwrap.o x86_64/efi_stub.o
-/usr/bin/ar: creating libefi.a
-a - boxdraw.o
+[0mx86_64-linux-gnu-gcc-ar rv -U libefi.a boxdraw.o smbios.o console.o crc.o data.o debug.o dpath.o error.o event.o exit.o guid.o hand.o hw.o init.o lock.o misc.o pause.o print.o sread.o str.o cmdline.o runtime/rtlock.o runtime/efirtlib.o runtime/rtstr.o runtime/vm.o runtime/rtdata.o x86_64/initplat.o x86_64/math.o x86_64/setjmp.o x86_64/callwrap.o x86_64/efi_stub.o
+[91m/usr/bin/ar: creating libefi.a
+[0ma - boxdraw.o
 a - smbios.o
 a - console.o
 a - crc.o
@@ -1782,10 +1786,10 @@ test_csv_3: passed
 running test_simple_sbat_csv
 test_simple_sbat_csv: passed
 running test_csv_simple_fuzz
-parsed 4 entries
+parsed 3 entries
 test_csv_simple_fuzz: passed
 running test_csv_simple_fuzz
-parsed 69 entries
+parsed 72 entries
 test_csv_simple_fuzz: passed
 x86_64-linux-gnu-gcc-12 -O2 -ggdb -std=gnu11 -isystem /shim-truenas/include/system -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -Iinclude -iquote . -isystem /usr/include -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096   -fshort-wchar -fno-builtin -rdynamic -fno-inline -fno-eliminate-unused-debug-types -fno-eliminate-unused-debug-symbols -gpubnames -grecord-gcc-switches  -Wall -Wextra -Wno-missing-field-initializers -Wsign-compare -Wno-deprecated-declarations -Wno-unused-but-set-variable -Wno-unused-variable -Wno-pointer-sign -Werror -Werror=nonnull -Werror=nonnull-compare  -DEFI_FUNCTION_WRAPPER -DGNU_EFI_USE_MS_ABI -DPAGE_SIZE=4096 -DSHIM_UNIT_TEST "-DDEFAULT_DEBUG_PRINT_STATE=0" -isystem include-fixed -isystem /usr/include/x86_64-linux-gnu -DHAVE_SHIM_LOCK_GUID -o test-load-options lib/guid.c load-options.c test-load-options.c test.c libefi-test.a -lefivar
 ./test-load-options
@@ -1940,9 +1944,9 @@ x86_64-linux-gnu-gcc-12 -O2 -ggdb -std=gnu11 -isystem /shim-truenas/include/syst
 running test_is_page_aligned
 test_is_page_aligned: passed
 x86_64-linux-gnu-gcc-12 -O2 -ggdb -std=gnu11 -isystem /shim-truenas/include/system -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -Iinclude -iquote . -isystem /usr/include -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096   -fshort-wchar -fno-builtin -rdynamic -fno-inline -fno-eliminate-unused-debug-types -fno-eliminate-unused-debug-symbols -gpubnames -grecord-gcc-switches  -Wall -Wextra -Wno-missing-field-initializers -Wsign-compare -Wno-deprecated-declarations -Wno-unused-but-set-variable -Wno-unused-variable -Wno-pointer-sign -Werror -Werror=nonnull -Werror=nonnull-compare  -DEFI_FUNCTION_WRAPPER -DGNU_EFI_USE_MS_ABI -DPAGE_SIZE=4096 -DSHIM_UNIT_TEST "-DDEFAULT_DEBUG_PRINT_STATE=0" -isystem include-fixed -isystem /usr/include/x86_64-linux-gnu -DHAVE_GET_VARIABLE -DHAVE_GET_VARIABLE_ATTR -DHAVE_SHIM_LOCK_GUID -o test-sbat csv.c lib/guid.c lib/variables.c mock-variables.c sbat.c sbat_var.S test-sbat.c test.c libefi-test.a -lefivar
-sbat_var.S: Assembler messages:
+[91msbat_var.S: Assembler messages:
 sbat_var.S:24: Warning: setting incorrect section attributes for .note.GNU-stack
-./test-sbat
+[0m./test-sbat
 running test_parse_sbat_tiny
 test_parse_sbat_tiny: passed
 running test_parse_sbat_section_null_sbat_base
@@ -2084,9 +2088,9 @@ make -C /shim-truenas/gnu-efi/x86_64/lib -f /shim-truenas/gnu-efi//lib/Makefile 
 make: Entering directory '/shim-truenas/gnu-efi/x86_64/lib'
 make -C /shim-truenas/gnu-efi/x86_64/inc -f /shim-truenas/gnu-efi//inc/Makefile SRCDIR=/shim-truenas/gnu-efi//inc ARCH=x86_64
 make: Entering directory '/shim-truenas/gnu-efi/x86_64/inc'
-x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/boxdraw.c -o boxdraw.o
 make: Nothing to be done for 'all'.
 make: Leaving directory '/shim-truenas/gnu-efi/x86_64/inc'
+x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/boxdraw.c -o boxdraw.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/smbios.c -o smbios.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/console.c -o console.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/crc.c -o crc.o
@@ -2117,13 +2121,13 @@ x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/setjmp.S -o x86_64/setjmp.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/callwrap.c -o x86_64/callwrap.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//lib -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//lib/x86_64/efi_stub.S -o x86_64/efi_stub.o
-/shim-truenas/gnu-efi//lib/x86_64/setjmp.S: Assembler messages:
+[91m/shim-truenas/gnu-efi//lib/x86_64/setjmp.S: Assembler messages:
 /shim-truenas/gnu-efi//lib/x86_64/setjmp.S:49: Warning: setting incorrect section attributes for .note.GNU-stack
-/shim-truenas/gnu-efi//lib/x86_64/efi_stub.S: Assembler messages:
+[0m[91m/shim-truenas/gnu-efi//lib/x86_64/efi_stub.S: Assembler messages:
 /shim-truenas/gnu-efi//lib/x86_64/efi_stub.S:190: Warning: setting incorrect section attributes for .note.GNU-stack
-x86_64-linux-gnu-gcc-ar rv -U libefi.a boxdraw.o smbios.o console.o crc.o data.o debug.o dpath.o error.o event.o exit.o guid.o hand.o hw.o init.o lock.o misc.o pause.o print.o sread.o str.o cmdline.o runtime/rtlock.o runtime/efirtlib.o runtime/rtstr.o runtime/vm.o runtime/rtdata.o x86_64/initplat.o x86_64/math.o x86_64/setjmp.o x86_64/callwrap.o x86_64/efi_stub.o
-/usr/bin/ar: creating libefi.a
-a - boxdraw.o
+[0mx86_64-linux-gnu-gcc-ar rv -U libefi.a boxdraw.o smbios.o console.o crc.o data.o debug.o dpath.o error.o event.o exit.o guid.o hand.o hw.o init.o lock.o misc.o pause.o print.o sread.o str.o cmdline.o runtime/rtlock.o runtime/efirtlib.o runtime/rtstr.o runtime/vm.o runtime/rtdata.o x86_64/initplat.o x86_64/math.o x86_64/setjmp.o x86_64/callwrap.o x86_64/efi_stub.o
+[91m/usr/bin/ar: creating libefi.a
+[0ma - boxdraw.o
 a - smbios.o
 a - console.o
 a - crc.o
@@ -2160,11 +2164,11 @@ make -C /shim-truenas/gnu-efi/x86_64/gnuefi -f /shim-truenas/gnu-efi//gnuefi/Mak
 make: Entering directory '/shim-truenas/gnu-efi/x86_64/gnuefi'
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//gnuefi -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//gnuefi/crt0-efi-x86_64.S -o crt0-efi-x86_64.o
 x86_64-linux-gnu-gcc-12 -I/shim-truenas/gnu-efi//gnuefi -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -std=gnu11 -ggdb -gdwarf-4 -gstrict-dwarf -ffreestanding -fmacro-prefix-map=/shim-truenas/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim-truenas/Cryptlib -I/shim-truenas/Cryptlib/Include -I/shim-truenas/gnu-efi/inc -I/shim-truenas/gnu-efi/inc/x86_64 -I/shim-truenas/gnu-efi/inc/protocol -I/shim-truenas/include -iquote /shim-truenas -iquote /shim-truenas -isystem /shim-truenas/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -DDEFAULT_LOADER='L"\\\\grubx64.efi"' -DDEFAULT_LOADER_CHAR='"\\\\grubx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-16.0-16.0+truenas/"' -DVENDOR_CERT_FILE=\"debian/truenas-uefi-ca.der\" -DVENDOR_DBX_FILE=\"dbx.esl\" -DSBAT_AUTOMATIC_DATE=2025021800 -DGNU_EFI_USE_EXTERNAL_STDARG -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim-truenas/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/12/include -fno-merge-all-constants -Wdate-time -D_FORTIFY_SOURCE=2 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim-truenas/gnu-efi//gnuefi/reloc_x86_64.c -o reloc_x86_64.o
-/shim-truenas/gnu-efi//gnuefi/crt0-efi-x86_64.S: Assembler messages:
+[91m/shim-truenas/gnu-efi//gnuefi/crt0-efi-x86_64.S: Assembler messages:
 /shim-truenas/gnu-efi//gnuefi/crt0-efi-x86_64.S:75: Warning: setting incorrect section attributes for .note.GNU-stack
-x86_64-linux-gnu-gcc-ar rv -U libgnuefi.a reloc_x86_64.o
-/usr/bin/ar: creating libgnuefi.a
-a - reloc_x86_64.o
+[0mx86_64-linux-gnu-gcc-ar rv -U libgnuefi.a reloc_x86_64.o
+[91m/usr/bin/ar: creating libgnuefi.a
+[0ma - reloc_x86_64.o
 make: Leaving directory '/shim-truenas/gnu-efi/x86_64/gnuefi'
 make: Leaving directory '/shim-truenas/gnu-efi'
 x86_64-linux-gnu-ld -o shimx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim-truenas/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined shim.o globals.o memattrs.o mok.o netboot.o cert.o dp.o loader-proto.o tpm.o version.o errlog.o sbat.o sbat_data.o sbat_var.o pe.o pe-relocate.o httpboot.o csv.o load-options.o utils.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/12/libgcc.a lib/lib.a
@@ -2277,39 +2281,39 @@ make[1]: Leaving directory '/shim-truenas'
    dh_shlibdeps
    dh_installdeb
    dh_gencontrol
-dpkg-gencontrol: warning: Depends field of package shim-unsigned: substitution variable ${shlibs:Depends} used, but is not defined
-   dh_md5sums
+[91mdpkg-gencontrol: warning: Depends field of package shim-unsigned: substitution variable ${shlibs:Depends} used, but is not defined
+[0m   dh_md5sums
    dh_builddeb
-dpkg-deb: building package 'shim-helpers-amd64-signed-template' in '../shim-helpers-amd64-signed-template_16.0+truenas-1_amd64.deb'.
 dpkg-deb: building package 'shim-unsigned' in '../shim-unsigned_16.0+truenas-1_amd64.deb'.
- dpkg-genbuildinfo -O../shim_16.0+truenas-1_amd64.buildinfo
- dpkg-genchanges -O../shim_16.0+truenas-1_amd64.changes
-dpkg-genchanges: info: including full source code in upload
- dpkg-source --after-build .
-dpkg-buildpackage: info: full upload (original source is included)
- ---> Removed intermediate container fdcf87c0c29b
- ---> d1016830cd9d
+dpkg-deb: building package 'shim-helpers-amd64-signed-template' in '../shim-helpers-amd64-signed-template_16.0+truenas-1_amd64.deb'.
+[91m dpkg-genbuildinfo -O../shim_16.0+truenas-1_amd64.buildinfo
+[0m[91m dpkg-genchanges -O../shim_16.0+truenas-1_amd64.changes
+[0mdpkg-genchanges: info: including full source code in upload
+[91m dpkg-source --after-build .
+[0mdpkg-buildpackage: info: full upload (original source is included)
+ ---> Removed intermediate container 315b8243954a
+ ---> c980cce98a72
 Step 17/21 : WORKDIR /
- ---> Running in 4a1be1b818da
- ---> Removed intermediate container 4a1be1b818da
- ---> 51dfd6c9bd2e
+ ---> Running in 42742f66f95e
+ ---> Removed intermediate container 42742f66f95e
+ ---> 300ff80344ef
 Step 18/21 : RUN hexdump -Cv /shim-truenas/shimx64.efi >build
- ---> Running in 8c95f54858e9
- ---> Removed intermediate container 8c95f54858e9
- ---> e8ba2309106c
+ ---> Running in b9845c11eef5
+ ---> Removed intermediate container b9845c11eef5
+ ---> 9b3f1ee90620
 Step 19/21 : RUN hexdump -Cv /shim-review/shimx64.efi >orig
- ---> Running in 64a4c9595fd9
- ---> Removed intermediate container 64a4c9595fd9
- ---> 36dc6627e86f
+ ---> Running in 700f6c1b7d81
+ ---> Removed intermediate container 700f6c1b7d81
+ ---> 9b8c944b8467
 Step 20/21 : RUN diff -u orig build || (echo "Build verification failed!" && exit 1)
- ---> Running in 6ec48df0ff9a
- ---> Removed intermediate container 6ec48df0ff9a
- ---> aefc81df9128
+ ---> Running in fa578c6a1abe
+ ---> Removed intermediate container fa578c6a1abe
+ ---> bb0212cff3f7
 Step 21/21 : RUN sha256sum /shim-truenas/shim*.efi /shim-review/shim*.efi
- ---> Running in 52584336f342
+ ---> Running in 1e9fb33ad20d
 1d710e9d03a77a6131f614796da0b61f780b48ef23036a3504aca4a40b4773e1  /shim-truenas/shimx64.efi
 1d710e9d03a77a6131f614796da0b61f780b48ef23036a3504aca4a40b4773e1  /shim-review/shimx64.efi
- ---> Removed intermediate container 52584336f342
- ---> e54475930ba1
-Successfully built e54475930ba1
+ ---> Removed intermediate container 1e9fb33ad20d
+ ---> e67eaaa79878
+Successfully built e67eaaa79878
 Successfully tagged shim-tn:latest

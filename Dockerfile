@@ -7,7 +7,7 @@ RUN apt-get update -y
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates wget git
 
 # Clone shim-review repository for comparison
-RUN git clone https://github.com/ixhamza/shim-review.git
+RUN git clone https://github.com/truenas/shim-review.git
 WORKDIR /shim-review
 RUN git checkout truenas/bookworm
 WORKDIR /
