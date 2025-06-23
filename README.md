@@ -223,7 +223,7 @@ Using all the standard upstream mechanisms/security features, most prominently t
 *******************************************************************************
 ### Do you build your signed kernel with additional local patches? What do they do?
 *******************************************************************************
-Yes, our signed kernel incorporates custom local patches that focus on storage bug fixes, performance enhancements, and additional storage capabilities. The comprehensive list of changes is available here: https://github.com/truenas/linux/compare/v6.12.25...truenas/linux-6.12?tab=commits. We also maintain up-to-date security and stability by regularly incorporating fixes from the upstream linux-stable tree through backporting and cherry-picking.
+Yes, our signed kernel incorporates custom local patches that focus on storage bug fixes, performance enhancements, and additional storage capabilities. The comprehensive list of changes is available here: https://github.com/truenas/linux/compare/v6.12.33...truenas/linux-6.12.33?tab=commits. We also maintain up-to-date security and stability by regularly incorporating fixes from the upstream linux-stable tree through backporting and cherry-picking.
 
 *******************************************************************************
 ### Do you use an ephemeral key for signing kernel modules?
