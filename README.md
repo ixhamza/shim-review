@@ -56,7 +56,7 @@ TrueNAS uses a custom Linux kernel patched for our storage needs and signed with
 
 *******************************************************************************
 ### Who is the primary contact for security updates, etc.?
-TrueNAS uses a custom Linux kernel patched for our storage requirements and signed with our vendor key. Other distros’ shims only trust their own keys and won’t load our kernel under Secure Boot, so we need a Microsoft-signed shim.
+The security contacts need to be verified before the shim can be accepted. For subsequent requests, contact verification is only necessary if the security contacts or their PGP keys have changed since the last successful verification.
 
 An authorized reviewer will initiate contact verification by sending each security contact a PGP-encrypted email containing random words.
 You will be asked to post the contents of these mails in your `shim-review` issue to prove ownership of the email addresses and PGP keys.
