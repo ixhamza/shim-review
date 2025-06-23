@@ -32,23 +32,13 @@ Organization name and website:
 The reviewers should be able to easily verify, that your organization is a legal entity, to prevent abuse.
 Provide the information, which can prove the genuineness with certainty.
 *******************************************************************************
-Company/tax register entries or equivalent:  
-(a link to the organization entry in your jurisdiction's register will do)  
-
 https://eintaxid.com/company/542081566-ixsystems%2C-inc./
 
-The public details of both your organization and the issuer in the EV certificate used for signing .cab files at Microsoft Hardware Dev Center File Signing Services.  
-(**not** the CA certificate embedded in your shim binary)
-
-Example:
-
+Codesigning EV Cert data:
 ```
-Issuer: O=MyIssuer, Ltd., CN=MyIssuer EV Code Signing CA
-Subject: C=XX, O=MyCompany, Inc., CN=MyCompany, Inc.
+Issuer: O=DigiCert, Inc. CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1
+Subject: C=US, O=iXsystems, Inc., CN=iXsystems, Inc.
 ```
-
-**IT: TODO**
-
 *******************************************************************************
 ### What product or service is this for?
 *******************************************************************************
@@ -288,7 +278,7 @@ This is our first shim signing request.
 ### How do you manage and protect the keys used in your shim?
 Describe the security strategy that is used for key protection. This can range from using hardware tokens like HSMs or Smartcards, air-gapped vaults, physical safes to other good practices.
 *******************************************************************************
-The keys are stored in a secured password vault dedicated to the keys themselves. Access to the vault is severely restricted.
+The keys are stored on a FIPS certified HSM with restricted access.
 
 *******************************************************************************
 ### Do you use EV certificates as embedded certificates in the shim?
