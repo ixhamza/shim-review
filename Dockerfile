@@ -1,6 +1,5 @@
 # Dockerfile for reproducible shim build
-# Adapted from Proxmox shim-review request
-FROM debian:bookworm-20250610
+FROM debian:trixie-20250908
 
 # Update package lists and install build dependencies
 RUN apt-get update -y
@@ -9,21 +8,21 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca
 # Clone shim-review repository for comparison
 RUN git clone https://github.com/truenas/shim-review.git
 WORKDIR /shim-review
-RUN git checkout truenas/bookworm
+RUN git checkout truenas-shim-amd64-20250923
 WORKDIR /
 
 # Download and verify upstream shim source
-RUN wget https://github.com/rhboot/shim/releases/download/16.0/shim-16.0.tar.bz2
-RUN echo "d503f778dc75895d3130da07e2ff23d2393862f95b6cd3d24b10cbd4af847217  shim-16.0.tar.bz2" >SHA256SUM
+RUN wget https://github.com/rhboot/shim/releases/download/16.1/shim-16.1.tar.bz2
+RUN echo "46319cd228d8f2c06c744241c0f342412329a7c630436fce7f82cf6936b1d603  shim-16.1.tar.bz2" >SHA256SUM
 RUN sha256sum -c SHA256SUM
 
 # Prepare source archive (Debian naming convention)
-RUN mv shim-16.0.tar.bz2 shim_16.0+truenas.orig.tar.bz2
+RUN mv shim-16.1.tar.bz2 shim_16.1+truenas.orig.tar.bz2
 
 # Clone TrueNAS shim repository and build
 RUN git clone https://github.com/truenas/shim-unsigned /shim-truenas
 WORKDIR /shim-truenas
-RUN git checkout stable/bookworm
+RUN git checkout master
 
 # Install build dependencies and build package
 RUN apt-get build-dep -y .

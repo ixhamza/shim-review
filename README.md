@@ -115,7 +115,7 @@ authentic, please confirm this here with a simple *yes*.
 
 A short guide on verifying public keys and signatures should be available in the [docs](./docs/) directory.
 *******************************************************************************
-Yes. Built exclusively from `shim-16.0.tar.bz2`. See our Dockerfile.
+Yes. Built exclusively from `shim-16.1.tar.bz2`. See our Dockerfile.
 
 *******************************************************************************
 ### URL for a repo that contains the exact code which was built to result in your binary:
@@ -123,13 +123,13 @@ Hint: If you attach all the patches and modifications that are being used to you
 
 You can also point to your custom git servers, where the code is hosted.
 *******************************************************************************
-https://github.com/truenas/shim-unsigned/tree/stable/bookworm
+https://github.com/truenas/shim-unsigned/tree/master
 
 *******************************************************************************
 ### What patches are being applied and why:
 Mention all the external patches and build process modifications, which are used during your building process, that make your shim binary be the exact one that you posted as part of this application.
 *******************************************************************************
-The first patch from [rhboot/shim#739](https://github.com/rhboot/shim/pull/739) is backported into `shim-16.0` to fix upstream test-suite failures. It’s now merged to upstream master.
+No patches applied. We build directly from upstream shim-16.1 source using Debian packaging, only embedding our vendor CA certificate.
 
 *******************************************************************************
 ### Do you have the NX bit set in your shim? If so, is your entire boot stack NX-compatible and what testing have you done to ensure such compatibility?
@@ -187,7 +187,7 @@ We re-use Debian's implementation (rebuilding Grub with SBAT adapted to differen
   * CVE-2023-4693
   * CVE-2023-4692
 *******************************************************************************
-Yes. Our GRUB packages contain fixes for all listed CVEs except CVE-2020-15705 and CVE-2021-3418, same as Debian. Moreover, we backported the February ’25 CVEs (SBAT-5).
+Yes. We use GRUB 2.12-9 from Debian Bookworm Backports which contains fixes for all listed CVEs. Additionally, we apply 3 minor patches for TrueNAS compatibility.
 - **TrueNAS GRUB Repository:** https://github.com/truenas/grub2/
 *******************************************************************************
 ### If shim is loading GRUB2 bootloader, and if these fixes have been applied, is the upstream global SBAT generation in your GRUB2 binary set to 4?
@@ -201,7 +201,7 @@ SBAT generation set to 5.
 ### Does your new chain of trust disallow booting old GRUB2 builds affected by the CVEs?
 If you had no previous signed shim, say so here. Otherwise a simple _yes_ will do.
 *******************************************************************************
-This is our first shim signing request.
+We have no previous signed shim. [We submitted shim-16.0 for Debian Bookworm](https://github.com/rhboot/shim-review/issues/478) but it has not been approved yet.
 
 *******************************************************************************
 ### If your boot chain of trust includes a Linux kernel:
@@ -223,7 +223,7 @@ Using all the standard upstream mechanisms/security features, most prominently t
 *******************************************************************************
 ### Do you build your signed kernel with additional local patches? What do they do?
 *******************************************************************************
-Yes, our signed kernel incorporates custom local patches that focus on storage bug fixes, performance enhancements, and additional storage capabilities. The comprehensive list of changes is available here: https://github.com/truenas/linux/compare/v6.12.33...truenas/linux-6.12.33?tab=commits. We also maintain up-to-date security and stability by regularly incorporating fixes from the upstream linux-stable tree through backporting and cherry-picking.
+Yes, our signed kernel incorporates custom local patches that focus on storage bug fixes, performance enhancements, and additional storage capabilities. The comprehensive list of changes is available here: https://github.com/truenas/linux/compare/v6.12.43...truenas/linux-6.12.43?tab=commits. We also maintain up-to-date security and stability by regularly incorporating fixes from the upstream linux-stable tree through backporting and cherry-picking.
 
 *******************************************************************************
 ### Do you use an ephemeral key for signing kernel modules?
@@ -243,7 +243,7 @@ This ensures that your new shim+GRUB2 can no longer chainload those older GRUB2 
 
 If this is your first application or you're using a new CA certificate, please say so here.
 *******************************************************************************
-This is our first shim signing request.
+We have no previous signed shim. [We submitted shim-16.0 for Debian Bookworm](https://github.com/rhboot/shim-review/issues/478) but it has not been approved yet.
 
 *******************************************************************************
 ### Is the Dockerfile in your repository the recipe for reproducing the building of your shim binary?
@@ -267,12 +267,12 @@ For example, signing new kernel's variants, UKI, systemd-boot, new certs, new CA
 
 Skip this, if this is your first application for having shim signed.
 *******************************************************************************
-This is our first shim signing request.
+We have no previous signed shim. [We submitted shim-16.0 for Debian Bookworm](https://github.com/rhboot/shim-review/issues/478) but it has not been approved yet.
 
 *******************************************************************************
 ### What is the SHA256 hash of your final shim binary?
 *******************************************************************************
-`1d710e9d03a77a6131f614796da0b61f780b48ef23036a3504aca4a40b4773e1`
+`9df7bd1310a679b6afd97c9dea8c2cf03e2fd45f22e2ab3426d157fb6ed21649`
 
 *******************************************************************************
 ### How do you manage and protect the keys used in your shim?
@@ -319,16 +319,16 @@ grub:
 ```
 sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
 grub,5,Free Software Foundation,grub,2.12,https://www.gnu.org/software/grub/
-grub.debian,4,Debian,grub2,2.12-1~bpo12+1,https://tracker.debian.org/pkg/grub2
-grub.debian13,1,Debian,grub2,2.12-1~bpo12+1,https://tracker.debian.org/pkg/grub2
-grub.peimage,1,Canonical,grub2,2.12-1~bpo12+1,https://salsa.debian.org/grub-team/grub/-/blob/master/debian/patches/secure-boot/efi-use-peimage-shim.patch
-grub.truenas,1,TrueNAS,grub2,2.12-1~bpo12+1,https://github.com/truenas/grub2
+grub.debian,5,Debian,grub2,2.12-9,https://tracker.debian.org/pkg/grub2
+grub.debian13,1,Debian,grub2,2.12-9,https://tracker.debian.org/pkg/grub2
+grub.peimage,2,Canonical,grub2,2.12-9,https://salsa.debian.org/grub-team/grub/-/blob/master/debian/patches/secure-boot/efi-use-peimage-shim.patch
+grub.truenas,1,TrueNAS,grub2,2.12-9,https://github.com/truenas/grub2
 ```
 shim
 ```
 sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
 shim,4,UEFI shim,shim,1,https://github.com/rhboot/shim
-shim.truenas,1,TrueNAS,shim,16.0+truenas,https://github.com/truenas/shim-unsigned.git
+shim.truenas,1,TrueNAS,shim,16.1+truenas,https://github.com/truenas/shim-unsigned.git
 ```
 
 *******************************************************************************
@@ -347,7 +347,7 @@ Not applicable.
 *******************************************************************************
 ### What is the origin and full version number of your bootloader (GRUB2 or systemd-boot or other)?
 *******************************************************************************
-GRUB 2 version `2.12-1~bpo12+1` forked from Debian Bookworm Backports with relevant CVEs applied.
+GRUB 2 version `2.12-9+truenas2` forked from Debian Trixie Backports.
 
 *******************************************************************************
 ### If your shim launches any other components apart from your bootloader, please provide further details on what is launched.
@@ -385,7 +385,7 @@ CONFIG_MODULE_SIG_SHA256=y
 CONFIG_MODULE_SIG_HASH="sha256"
 CONFIG_MODULE_SIG_KEY="certs/signing_key.pem"
 CONFIG_MODULE_SIG_KEY_TYPE_RSA=y
-CONFIG_SYSTEM_TRUSTED_KEYS="../debian/certs/Modules.pem"
+CONFIG_SYSTEM_TRUSTED_KEYS="debian/certs/truenas-uefi-certs.pem"
 ```
 
 *******************************************************************************
@@ -396,7 +396,7 @@ A reasonable timeframe of waiting for a review can reach 2-3 months. Helping us 
 
 For newcomers, the applications labeled as [*easy to review*](https://github.com/rhboot/shim-review/issues?q=is%3Aopen+is%3Aissue+label%3A%22easy+to+review%22) are recommended to start the contribution process.
 *******************************************************************************
-I’m new to the shim-review process, so I haven’t reviewed other applications yet. I plan to start by reviewing issues tagged “easy to review” to contribute.
+I’m new to the shim-review process, so I haven’t reviewed other applications yet.
 
 *******************************************************************************
 ### Add any additional information you think we may need to validate this shim signing application.
